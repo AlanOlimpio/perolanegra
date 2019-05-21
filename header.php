@@ -33,9 +33,10 @@
 		<?php if (has_nav_menu('primary')){
 			wp_nav_menu(array(
 				'theme_location' => 'primary',
-				'container' => 'div',
-				'container_class' => 'w3-right w3-hide-small',
-				'fallback_cb' => false,
+				'container'		 => 'div',
+				'container_class'=> 'w3-right w3-hide-small',
+				'fallback_cb' 	 => false,
+				'depth'          => 4,
 				
 				
 
