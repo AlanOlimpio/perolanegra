@@ -234,7 +234,7 @@ function pn_contact_form_send(){
     if(isset($_POST['gd_subject'])){$gd_subject = esc_attr($_POST['gd_subject']);}else{$gd_subject='';}
     if(isset($_POST['gd_message'])){$gd_message = esc_attr($_POST['gd_message']);}else{die('error');}
     if(!isset($_POST['name']) || (isset($_POST['name']) && $_POST['name'])){die('error');}
-    $headers = 'From: alancleyton.olimpio@gmail.com' . "\r\n" .
+    $headers = 'From: ' . get_theme_mod('pn_username_customizer_smtp') . "\r\n" .
         'Reply-To: '.$gd_email . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     $message = "Nome: $gd_name - $gd_email \r\n";
@@ -247,7 +247,7 @@ function pn_contact_form_send(){
     $message .= "$gd_message \r\n";
     $message .= " \r\n<br/><hr/>";
     $message .= "<br/>Este e-mail foi enviado do seu <b>web site</b>\r\n";
-    wp_mail( 'alancleyton.olimpio@gmail.com', 'Contato pelo web Site :: '.$gd_subject, $message, $headers );
+    wp_mail( get_theme_mod('pn_recipient_customizer_smtp') , 'Contato pelo web Site :: '.$gd_subject, $message, $headers );
     echo "Sua mensagem foi enviada com sucesso.<br/> Obrigado ".$gd_name ;
     die();
 }

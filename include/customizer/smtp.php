@@ -8,6 +8,7 @@ function pn_config_customizer_smtp($wp_customize){
 	$wp_customize->add_setting('pn_port_customizer_smtp');
 	$wp_customize->add_setting('pn_username_customizer_smtp');
 	$wp_customize->add_setting('pn_password_customizer_smtp');
+	$wp_customize->add_setting('pn_recipient_customizer_smtp');
 		
 	// Sections
 	$wp_customize->add_section('pn_config_smtp_section', array(
@@ -101,5 +102,18 @@ function pn_config_customizer_smtp($wp_customize){
 		)
 	);
 
-	
+	$wp_customize->add_control(
+	new  WP_Customize_Control(
+		$wp_customize,
+		'pn_recipient_customizer_smtp',
+		array(
+			'label' =>__('Destinatário:'),
+			'section' =>'pn_config_smtp_section',
+			'secttings'=>'pn_recipient_customizer_smtp',
+			'input_attrs' => array(
+            'placeholder' => __( 'destinatario@gmail.com', 'directorist' ),
+			 ))
+
+		)
+	);
 }

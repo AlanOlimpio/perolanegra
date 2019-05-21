@@ -1,14 +1,24 @@
-<footer id="pn_fundo_footer" class="w3-padding-64" >
-  <?php 
+<?php 
+/*
+Template Name: Página Landing Page
+*/
+ ?>
+<?php wp_head();?>	
+		<?php while(have_posts()): ?>
+			
+			<?php the_post(); ?>
 
-  		require get_template_directory().'/include/widgets/widgets.php';
+			
+				
 
-  ?>
+				<?php the_content() ?>					
+							
+					
+		
+		<?php endwhile; ?>
 <script type="text/javascript">
 	var	pn_ajaxUrl = "<?php echo admin_url('admin-ajax.php') ?>";
 </script>
-<?php wp_footer(); ?>
-</footer>
 <style type="text/css">
 <?php if(get_header_image()): ?>
     .bgimg-1 {
@@ -34,7 +44,5 @@
     }
 	#pn_fundo_footer a:hover { color: <?php echo get_theme_mod('pn_color_a_hover_footer'); ?>;
     }
-</style>
-	
-</body>
-</html>
+</style>		
+<?php wp_footer(); ?>
